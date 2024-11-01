@@ -1,0 +1,163 @@
+@import "../variables/colors.scss";
+@import "../mixins.scss";
+
+.users {
+  &_container {
+    margin: 2.25rem auto 1rem;
+    width: 55rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0 0.0625rem 0.25rem;
+    border-radius: 0 0 0.3rem 0.3rem;
+    padding: 1rem;
+    min-height: 70vh;
+
+    @include adaptive1200 {
+      width: 100%;
+    }
+  }
+
+  &_container b {
+    font-weight: 600;
+  }
+
+  &_container p {
+    margin: 2em 0;
+  }
+
+  &_container p:first-child {
+    margin-top: 0;
+  }
+
+  &_container p:last-child {
+    margin-bottom: 0;
+  }
+
+  &_search {
+    &_panel {
+      display: flex;
+      justify-content: flex-start;
+      align-items: stretch;
+      margin: 0 0 2em 0;
+    }
+
+    &_input_wrap {
+      position: relative;
+      width: 100%;
+    }
+
+    &_icon {
+      position: absolute;
+      pointer-events: none;
+      left: 0.6em;
+      top: 0.6em;
+      width: 1.2em;
+      height: 1.2em;
+    }
+
+    &_input {
+      font-family: "Roboto Mono", monospace;
+      width: 100%;
+      padding: 0.5rem 0.3rem 0.5rem 2.2rem;
+      border: 0.0625rem solid #dddce0;
+      transition: border 350ms linear;
+      border-radius: 0.3rem;
+    }
+
+    &_button {
+      font-size: 0.625rem;
+      box-sizing: border-box;
+      min-width: 5.75rem;
+      border: 0.0625rem solid #ff2d55;
+      border-radius: 0.3rem;
+      font-weight: 500;
+      transition: transform 350ms linear;
+    }
+  }
+}
+
+.user_list table {
+  width: 100%;
+  text-align: left;
+  word-break: break-all;
+}
+
+.user_list tr {
+  height: 4em;
+}
+
+.user_list td,
+.user_list th {
+  vertical-align: middle;
+}
+
+.user_list th {
+  font-weight: 600;
+}
+
+.user_list tr.item {
+  border-top: 1px solid #dddce0;
+}
+
+.user_list .wallet {
+  font-size: 0.9em;
+}
+
+.user_list .select_role {
+  padding: 0.3em;
+  border: 1px solid #dddce0;
+  border-radius: 0.3em;
+  width: 8.5em;
+}
+
+.confirm_modal::backdrop {
+  backdrop-filter: blur(0.1em);
+}
+
+.confirm_modal {
+  z-index: 10;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 36em;
+  padding: 3em 2em 2em 2em;
+  margin: 0;
+
+  max-height: 100dvh;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  background: white;
+  border: 1px solid #676370;
+  box-shadow: 0 0 0.3em #676370;
+
+  text-align: center;
+
+  &_buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1em;
+    margin-top: 3em;
+  }
+
+  &_buttons_confirm,
+  &_buttons_cancel {
+    height: 2.5em;
+    width: 7.75em;
+
+    border: 0.0625rem solid #ff2d55;
+    border-radius: 0.3rem;
+    font-weight: 500;
+  }
+
+  &_buttons_confirm {
+    background-color: #ff2d55;
+    color: #ffffff;
+  }
+}
+
+.confirm_modal code {
+  word-wrap: break-word;
+  font-size: 0.9em;
+}

@@ -1,0 +1,40 @@
+@import "../variables/colors.scss";
+@import "../mixins.scss";
+
+.confirm_del_modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-height: 7.5rem;
+  transform: translate(-50%, -50%);
+  padding: 1rem;
+  background-color: $white;
+  @include toRem(width, 310);
+  z-index: 1;
+  text-align: center;
+  border: 0.2rem solid $red;
+  border-radius: 0.3rem;
+
+  @include adaptive360 {
+    @include toRem(width, 280);
+  }
+
+  & > span {
+    font-weight: 600;
+  }
+
+  &_btns_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 1.5rem 0 0 0;
+  }
+
+  &_btn {
+    padding: 0.5rem 2rem;
+    background-color: $red;
+    color: $white;
+    border: 0.0625rem solid $red;
+    border-radius: 0.3rem;
+  }
+}

@@ -1,0 +1,257 @@
+@import "../variables/colors.scss";
+@import "../mixins.scss";
+
+.add_content_loader_wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: $white;
+  opacity: 0.7;
+
+  &__new_booking {
+    padding: 50% 0 0 0;
+
+    @include adaptive1090 {
+      padding: 60% 0 0 0;
+    }
+
+    @include adaptive800 {
+      padding: 90% 0 0 0;
+    }
+
+    @include adaptive550 {
+      padding: 115% 0 0 0;
+    }
+
+    @include adaptive480 {
+      padding: 150% 0 0 0;
+    }
+  }
+}
+
+.auth_form_loader_wrap {
+  margin: 45% 0 0 0;
+}
+
+.start_panel_loader_wrap {
+  margin: 25% 0 0 0;
+}
+
+.locations_menu_loader_wrap {
+  margin: 15% 0 0 0;
+}
+
+.loader_ring {
+  margin: 10% auto;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 1s linear infinite;
+
+  &::before,
+  &::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0px;
+    border-radius: 50%;
+    border: 5px solid #00c4f0;
+    animation: prixClipFix 2s linear infinite;
+  }
+
+  &::after {
+    transform: rotate3d(90, 90, 0, 180deg);
+    border-color: #ff3d00;
+  }
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes prixClipFix {
+    0% {
+      clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
+    }
+    50% {
+      clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
+    }
+    75%,
+    100% {
+      clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
+    }
+  }
+}
+
+.location_preview_loader_wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  backdrop-filter: blur(10px);
+}
+
+.location_preview_loader_wrap .loader_ring {
+  margin: 0 auto;
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.img_loader {
+  height: 100%;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 2rem;
+  background: #fff;
+  box-sizing: border-box;
+
+  @include adaptive800 {
+    top: 0.8rem;
+    transform: translateY(0);
+  }
+
+  @include adaptive480 {
+    top: 0.4rem;
+  }
+
+  &_standard_wide {
+    @include toRem(width, 124);
+    @include toRem(max-height, 70);
+  }
+
+  &_standard_narrow {
+    @include toRem(width, 70);
+    @include toRem(max-height, 124);
+  }
+
+  &_rectangular {
+    @include toRem(width, 93);
+    @include toRem(height, 70);
+  }
+
+  &_rectangular_narrow {
+    @include toRem(width, 70);
+    @include toRem(height, 93);
+  }
+
+  &_ultra_wide {
+    @include toRem(width, 124);
+    @include toRem(max-height, 53);
+  }
+
+  &_location_prev {
+    width: 100%;
+    left: 0;
+    top: 0;
+    transform: translateY(0);
+    height: 100%;
+    max-height: 100%;
+  }
+
+  &_event_poster {
+    z-index: 1;
+    left: 0;
+    top: 0;
+    transform: translateY(0);
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    max-height: 100%;
+
+    @include adaptive800 {
+      @include toRem(width, 140);
+      margin: 0;
+    }
+
+    @include adaptive360 {
+      width: auto;
+    }
+  }
+
+  &_discord_preview {
+    top: 0;
+    left: 0;
+    transform: translateY(0);
+    width: 100%;
+    max-height: 100%;
+  }
+
+  @include adaptive480 {
+    top: 0.4rem;
+    left: 0.6rem;
+
+    &_location_prev,
+    &_event_poster,
+    &_event_poster_booking_form {
+      left: 0;
+      top: 0;
+    }
+  }
+
+  &_event_poster_booking_form {
+    width: 100%;
+    left: 0;
+
+    @include adaptive800 {
+      top: 0;
+      transform: translateY(0);
+    }
+  }
+
+  & > img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    filter: brightness(0) invert(1);
+    z-index: 1;
+  }
+}
+.img_loader::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.5) 50%,
+      transparent 100%
+    ),
+    linear-gradient(#ddd 8.25rem, transparent 0),
+    linear-gradient(#ddd 6rem, transparent 0),
+    linear-gradient(#ddd 8.125rem, transparent 0);
+  background-repeat: no-repeat;
+  background-position: -11.5625rem, center 0, center 7.1875rem, center 8.875rem;
+  animation: animloader 1s linear infinite;
+}
+
+@keyframes animloader {
+  to {
+    background-position: 11.5625rem 0, center 0, center 7.1875rem,
+      center 8.875rem;
+  }
+}
+
+.img_visible_state {
+  visibility: visible;
+}
+
+.img_hidden_state {
+  visibility: hidden;
+}

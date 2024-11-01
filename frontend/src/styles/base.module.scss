@@ -1,0 +1,67 @@
+@use "scss-reset/reset";
+@import "./mixins.scss";
+
+html {
+  padding-left: calc(100vw - 100%);
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+code {
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.container {
+  @include toRem(max-width, 1200);
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 0 0.5rem;
+
+  @include adaptive1200 {
+    width: 68.125rem;
+  }
+
+  @include adaptive1090 {
+    width: 50rem;
+  }
+
+  @include adaptive800 {
+    width: 34.375rem;
+  }
+
+  @include adaptive550 {
+    width: 30rem;
+  }
+
+  @include adaptive480 {
+    width: 22.5rem;
+  }
+
+  @include adaptive360 {
+    width: 20rem;
+  }
+}
+
+.page_container {
+  position: relative;
+  margin: 2.25rem 0 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 70vh;
+
+  @include adaptive1200 {
+    justify-content: center;
+    max-width: 55rem;
+    margin: 2.25rem auto 1rem;
+  }
+}

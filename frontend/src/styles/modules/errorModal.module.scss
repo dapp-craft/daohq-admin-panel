@@ -1,0 +1,77 @@
+@import "../variables/colors.scss";
+@import "../mixins.scss";
+
+.modal_wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  backdrop-filter: blur(10px);
+  z-index: 15;
+}
+
+.modal {
+  width: 30rem;
+  padding: 2rem;
+  position: absolute;
+  top: 12rem;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  background-color: $white;
+  border: 0.125rem solid $red;
+  border-radius: 0.5rem;
+
+  @include adaptive800 {
+    width: 25rem;
+  }
+
+  @include adaptive550 {
+    width: 20rem;
+  }
+
+  &_img_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 1.5rem;
+  }
+
+  &_title {
+    color: $red;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  &_description {
+    &_header {
+      font-size: 1.4rem;
+      color: $red;
+      font-weight: 700;
+      margin: 1rem 0 0 0;
+    }
+
+    &_text {
+      font-size: 1.2rem;
+      padding: 0.5rem;
+      color: $black;
+      font-weight: 600;
+    }
+
+    &_code {
+      padding: 0.5rem 0.5rem 0 0.5rem;
+    }
+  }
+
+  &_button_wrap {
+    margin: 1rem 0 0 0;
+  }
+
+  &_button {
+    padding: 0.8rem 3rem;
+    background-color: $red;
+    color: $white;
+    border-radius: 0.3rem;
+  }
+}

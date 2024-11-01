@@ -1,0 +1,5 @@
+url = 'http://0.0.0.0:8008'
+
+[s3]
+files_bucket_name = 'daohq-files'
+user_files_bucket_name = 'daohq-user-files'

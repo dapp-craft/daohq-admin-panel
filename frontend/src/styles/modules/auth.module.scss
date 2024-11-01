@@ -1,0 +1,127 @@
+@import "../variables/colors.scss";
+@import "../mixins.scss";
+
+.button {
+  margin: 1rem;
+  padding: 0.8rem;
+  color: $black;
+  background-color: $white;
+  border: 0.0625rem solid $red;
+  border-radius: 0.3rem;
+
+  &__focus {
+    color: $white;
+    background-color: $red;
+  }
+}
+
+.login {
+  &_grid {
+    display: grid;
+    width: 100dvw;
+    height: 100dvh;
+    grid-template:
+      "header header header" 1fr
+      "left content right" max-content
+      "footer footer footer" 2fr / 1fr max-content 1fr;
+  }
+
+  &_container {
+    grid-area: content;
+    box-shadow: 0 0 0.3em black;
+    @include toRem(min-height, 470);
+
+    border-radius: 1em;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: row;
+  }
+
+  &_container .cover {
+    width: 25em;
+
+    &_img {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+    }
+
+    @include adaptive1090 {
+      display: none;
+    }
+  }
+
+  &_form {
+    text-align: center;
+    min-width: 19em;
+    padding: 1em 0.75em;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &_form h1 {
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 1em;
+  }
+
+  &_form .ref {
+    padding: 1em;
+    color: white;
+    background: black;
+    box-shadow: 0 0 0.3em black;
+    border-radius: 0.5em;
+
+    margin-top: 1em;
+
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  &_form .separator {
+    display: flex;
+    align-items: center;
+    font-size: 0.8em;
+    width: 100%;
+  }
+
+  &_form .separator::before,
+  &_form .separator::after {
+    flex: 1;
+    content: "";
+    padding: 1px;
+    background-color: grey;
+    margin: 5px;
+  }
+
+  &_form .address {
+    font-size: 0.66em;
+    border: 1px solid grey;
+    border-radius: 0.3em;
+    padding: 0.3em 0.5em;
+    text-wrap: nowrap;
+  }
+
+  &_form button {
+    margin: 1em;
+  }
+
+  &_form p {
+    margin: 0.75em 0;
+  }
+}
+
+button[disabled] {
+  color: $white;
+  border: 0.0625rem solid $white;
+  background-color: #fbbac6;
+}
+
+hr {
+  background-color: grey;
+}

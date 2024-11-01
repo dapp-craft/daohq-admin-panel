@@ -1,0 +1,339 @@
+@import "../variables/colors.scss";
+@import "../mixins.scss";
+
+.form {
+  &_container {
+    padding: 1.25rem 2.5rem 0.875rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0 0 0.25rem;
+
+    @include adaptive480 {
+      padding: 0.8rem 0.8rem 0.4rem;
+    }
+  }
+
+  &_buttons_wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    @include adaptive480 {
+      flex-direction: column-reverse;
+      row-gap: 1rem;
+    }
+  }
+
+  &_buttons_edit_wrap {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+  }
+
+  &_button,
+  &_input_add_img_label,
+  &_edit_link {
+    @include toRem(font-size, 14);
+    border: 0.0625rem solid $red;
+    border-radius: 0.3rem;
+    padding: 0.75rem;
+    box-sizing: border-box;
+    background-color: white;
+    transition: transform 350ms linear;
+
+    &:hover {
+      transition: transform 350ms linear;
+      transform: scale(1.05, 1.05);
+    }
+  }
+
+  &_input_add_img_label {
+    @include toRem(height, 123.75);
+    @include toRem(width, 220);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 0.5rem;
+    padding: 0;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:hover {
+      transform: none;
+    }
+
+    & > span:first-child {
+      display: inline-block;
+      @include toRem(width, 25);
+      @include toRem(height, 25);
+      border-radius: 50%;
+      @include toRem(font-size, 30);
+      color: $white;
+      background-color: $gray;
+      @include toRem(line-height, 22);
+      opacity: 0.4;
+      text-align: center;
+    }
+  }
+
+  &_input_add_img_temporary_poster {
+    object-fit: fill;
+    width: 100%;
+    height: 100%;
+  }
+
+  &_input_add_img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+    cursor: pointer;
+  }
+
+  &_edit_link {
+    display: block;
+    text-decoration: none;
+    color: $black;
+    text-align: center;
+    @include toRem(min-width, 144);
+  }
+
+  &_submission {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    @include toRem(row-gap, 42);
+  }
+
+  &_input_event_input_label {
+    margin: 0 0 0.8rem 0;
+  }
+
+  &_input_event_label_text {
+    margin: 0 0 0.375rem;
+    font-weight: 600;
+  }
+
+  &_input_event_label_hint {
+    font-size: 0.875rem;
+    color: grey;
+  }
+
+  &_input_event_name_wrap,
+  &_input_event_description_wrap,
+  &_input_event_date_wrap,
+  &_input_event_time_wrap,
+  &_input_event_start_date_wrap {
+    display: flex;
+    column-gap: 1.56rem;
+    flex-direction: column;
+  }
+
+  &_input_event_date_wrap,
+  &_input_event_start_date_wrap {
+    justify-content: flex-start;
+  }
+
+  &_input_event_name,
+  &_input_event_description,
+  &_input_event_date,
+  &_input_event_time,
+  &_input_event_start_date {
+    padding: 0.47rem 0.3rem 0.47rem 1rem;
+    border: 0.0625rem solid $light-gray;
+    border-radius: 0.3rem;
+    width: 100%;
+    transition: border 350ms linear;
+    @include toRem(font-size, 14);
+    line-height: 1rem;
+
+    &:focus {
+      transition: border 350ms linear;
+      border: 0.0625rem solid $gray;
+    }
+  }
+
+  &_input_event_start_date_time_wrap {
+    position: relative;
+  }
+
+  &_input_event_time_block_wrap {
+    box-shadow: rgba(0, 0, 0, 0.16) 0 0 0.25rem;
+    border-radius: 0.3rem;
+    padding: 1rem;
+    max-height: 20rem;
+    overflow-y: scroll;
+    width: 100%;
+
+    @include adaptive360 {
+      padding: 0.5rem;
+    }
+  }
+
+  &_input_event_time_block_valid_error {
+    background-color: rgba(255, 46, 84, 0.15);
+  }
+
+  &_input_event_time_block_disabled {
+    opacity: 0.7;
+    background-color: rgba(221, 221, 221, 0.5);
+  }
+
+  &_input_event_time_block {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 1rem;
+
+    @include adaptive800 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include adaptive480 {
+      gap: 0.7rem;
+    }
+
+    &_next_day {
+      padding: 1rem 0;
+      text-align: center;
+    }
+
+    &_item {
+      @include toRem(font-size, 12);
+      padding: 0.5625rem 0;
+      @include toRem(width, 66);
+      border: 0.0625rem solid $gray;
+      text-align: center;
+      border-radius: 0.3rem;
+      cursor: pointer;
+
+      @include adaptive800 {
+        margin: auto;
+      }
+
+      @include adaptive480 {
+        @include toRem(font-size, 11);
+        @include toRem(width, 60);
+      }
+
+      @include adaptive360 {
+        @include toRem(font-size, 10);
+        @include toRem(width, 53);
+      }
+
+      &_past {
+        background-color: $light-gray;
+        border: 0.0625rem solid $gray;
+      }
+
+      &_active {
+        background-color: $red;
+        color: $white;
+        border: 0.0625rem solid $red;
+      }
+
+      &_sibling {
+        border: 0.0625rem solid $red;
+        box-shadow: rgba(255, 45, 85, 0.25) 0px 2px 5px -1px,
+          rgba(255, 45, 85, 0.3) 0px 1px 3px 0;
+      }
+    }
+  }
+
+  &_input_event_date,
+  &_input_event_start_date {
+    width: 20%;
+  }
+
+  &_input_event_date {
+    @include adaptive800 {
+      width: 30%;
+    }
+
+    @include adaptive550 {
+      width: 40%;
+    }
+
+    @include adaptive480 {
+      width: 55%;
+    }
+  }
+
+  &_input_event_start_date_wrap {
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @include adaptive480 {
+      flex-direction: column;
+      row-gap: 2rem;
+    }
+  }
+
+  &_input_event_start_date {
+    width: 100%;
+  }
+
+  &_input_event_start_date_time_error {
+    position: absolute;
+    bottom: 5rem;
+    left: 0;
+    max-width: 14rem;
+    font-size: 0.8rem;
+    background-color: $red;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: $white;
+  }
+
+  &_input_validation_error {
+    background-color: rgba(255, 46, 84, 0.15);
+  }
+
+  &_input_event_name_valid_rules_wrap {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  &_input_event_name_valid_rules {
+    font-size: 0.8rem;
+    color: $red;
+    font-weight: 600;
+  }
+
+  &_input_event_name_length_counter {
+    padding: 0 0 0 0.5rem;
+    margin: 0 0 0 auto;
+    font-size: 0.8rem;
+    font-weight: 600;
+    opacity: 0.5;
+  }
+
+  &_submit_button_wrap {
+    margin: 0 1rem 0 auto;
+  }
+
+  &_submit_button {
+    @include toRem(min-width, 124);
+    background-color: $red;
+    padding: 0.72rem;
+    color: $white;
+    border-radius: 0.3rem;
+    transition: transform 350ms linear;
+
+    &:hover {
+      transform: scale(1.05, 1.05);
+    }
+  }
+
+  &_pre_label_wrap {
+    margin: 0 0 1rem 0;
+
+    @include adaptive800 {
+      margin: 0 1rem 1rem 0;
+    }
+  }
+}

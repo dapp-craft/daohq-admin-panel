@@ -1,0 +1,434 @@
+@import "../variables/colors.scss";
+@import "../mixins.scss";
+
+.form {
+  &_wrap {
+    padding: 1rem 2rem;
+    position: relative;
+  }
+
+  &_title_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    @include adaptive480 {
+      flex-direction: column-reverse;
+      align-items: flex-start;
+      row-gap: 1.5rem;
+    }
+
+    &__form {
+      @include adaptive800 {
+        flex-direction: column-reverse;
+        row-gap: 1.5rem;
+      }
+    }
+  }
+
+  &_title {
+    @include toRem(font-size, 20);
+    font-weight: 600;
+  }
+
+  &_save_button {
+    padding: 0.8rem 0.7rem;
+    @include toRem(font-size, 16);
+    @include toRem(width, 124);
+    background-color: $red;
+    border-radius: 0.3rem;
+    color: $white;
+    font-weight: 600;
+    transition: transform 350ms linear;
+
+    &:hover {
+      transform: scale(1.05, 1.05);
+    }
+  }
+
+  &_form_wrap {
+    margin: 0.5rem 0 0 0;
+  }
+
+  &_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1rem;
+  }
+
+  &_input_wrap {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include adaptive550 {
+      flex-direction: column;
+      align-items: flex-start;
+      row-gap: 0.5rem;
+    }
+
+    &__discord {
+      column-gap: 1.5rem;
+    }
+  }
+
+  &_input_wrap__file {
+    align-items: flex-start;
+
+    @include adaptive1090 {
+      flex-direction: column;
+      row-gap: 2rem;
+    }
+  }
+
+  &_input_container {
+    width: 100%;
+  }
+
+  &_input {
+    width: 100%;
+    @include toRem(font-size, 16);
+    padding: 0.42rem 0.3rem 0.42rem 1rem;
+    border: 0.0625rem solid $light-gray;
+    border-radius: 0.3rem;
+    transition: border 350ms linear;
+
+    &:focus {
+      border: 0.0625rem solid $gray;
+    }
+  }
+
+  &_input_length_counter {
+    font-size: 0.8rem;
+    font-weight: 600;
+    opacity: 0.8;
+    color: $gray;
+    text-align: right;
+    margin: 0 0 0 auto;
+  }
+
+  &_input_valid_error {
+    background-color: rgba(255, 46, 84, 0.15);
+  }
+
+  &_input__file {
+    position: absolute;
+    @include toRem(left, 160);
+    border: none;
+    visibility: hidden;
+    &:focus {
+      border: none;
+    }
+  }
+
+  &_fake_input {
+    padding: 0.7rem;
+    @include toRem(font-size, 16);
+    @include toRem(min-width, 124);
+    background-color: $white;
+    border-radius: 0.3rem;
+    color: $black;
+    border: 0.0625rem solid $red;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 350ms linear;
+
+    &:hover {
+      transform: scale(1.05, 1.05);
+    }
+  }
+
+  &_label {
+    @include toRem(min-width, 160);
+    @include toRem(font-size, 20);
+  }
+
+  &_label__file {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1em;
+
+    @include adaptive360 {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    & > span:first-of-type {
+      text-wrap: nowrap;
+      min-width: 9rem;
+      @include toRem(font-size, 20);
+    }
+  }
+
+  &_preview_img_cont {
+    border-radius: 0.3rem;
+    overflow: hidden;
+    border: 0.0625rem solid $red;
+    cursor: pointer;
+
+    &_standard_wide {
+      @include toRem(width, 300);
+      @include toRem(height, 169);
+
+      @include adaptive550 {
+        @include toRem(width, 230);
+        @include toRem(height, 129);
+      }
+    }
+
+    &_standard_narrow {
+      margin: 0 4rem 0 0;
+      @include toRem(width, 169);
+      @include toRem(height, 300);
+
+      @include adaptive550 {
+        @include toRem(width, 129);
+        @include toRem(height, 230);
+      }
+    }
+
+    &_rectangular {
+      margin: 0 4.5rem 0 0;
+      @include toRem(width, 225);
+      @include toRem(height, 169);
+
+      @include adaptive550 {
+        @include toRem(width, 172);
+        @include toRem(height, 129);
+      }
+    }
+
+    &_rectangular_narrow {
+      margin: 0 4.5rem 0 0;
+      @include toRem(width, 169);
+      @include toRem(height, 225);
+
+      @include adaptive550 {
+        @include toRem(width, 129);
+        @include toRem(height, 172);
+      }
+    }
+
+    &_ultra_wide {
+      @include toRem(width, 300);
+      @include toRem(height, 128);
+
+      @include adaptive550 {
+        @include toRem(width, 230);
+        @include toRem(height, 98);
+      }
+    }
+  }
+
+  &_preview_svg_wrap {
+    width: 100%;
+    height: 100%;
+
+    & > svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &_preview_img_cont_standard_narrow &_preview_svg_wrap {
+    text-align: center;
+    & > svg {
+      width: 80%;
+      height: 100%;
+    }
+  }
+
+  &_preview_img_cont_rectangular_narrow &_preview_svg_wrap,
+  &_preview_img_cont_rectangular &_preview_svg_wrap {
+    text-align: center;
+    & > svg {
+      width: 80%;
+      height: 100%;
+    }
+  }
+
+  &_preview {
+    object-fit: fill;
+    width: 100%;
+    height: 100%;
+  }
+
+  &_streaming {
+    &_content_wrap {
+      margin: 1.5rem 0 0 0;
+    }
+
+    &_paragraph,
+    &_list_container {
+      margin: 0 0 1rem 0;
+    }
+
+    &_paragraph {
+      position: relative;
+    }
+
+    &_list_container {
+      list-style: inside decimal;
+      padding: 0 0 0 1rem;
+
+      &_world {
+        margin: 2rem;
+        border: 0.1rem solid #fd6;
+        border-radius: 0.3em;
+        background-color: rgba(255, 221, 102, 0.1);
+        padding: 0.3em 0.5em;
+        cursor: pointer;
+        font-weight: 500;
+
+        @include adaptive800 {
+          margin: 1rem;
+        }
+
+        @include adaptive480 {
+          margin: 1rem 0;
+          font-size: 0.85rem;
+          padding: 0.3em;
+        }
+
+        @include adaptive360 {
+          font-size: 0.75rem;
+        }
+
+        &_copied {
+          @include adaptive550 {
+            position: absolute;
+            top: -1.5rem;
+            right: 1rem;
+            background-color: $white;
+            border: 0.0625rem solid $red;
+            border-radius: 0.3rem;
+            padding: 0.2rem 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+          }
+
+          @include adaptive480 {
+            right: 0;
+            top: -1rem;
+          }
+        }
+      }
+
+      &_note {
+        margin: 0.5rem 0 0.5rem 1rem;
+        padding: 0.5rem 0 0.5rem 0.5rem;
+        display: block;
+        border-left: 0.3rem solid #fd6;
+        background-color: rgba(255, 221, 102, 0.1);
+
+        & > strong {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  &_music {
+    &_item {
+      &_grid_wrap {
+        position: relative;
+        display: grid;
+        grid-template-columns: 2.5fr 3fr 1fr;
+        align-items: center;
+        column-gap: 1rem;
+        padding: 0.8rem 2rem;
+        border-bottom: 0.0625rem solid $light-gray;
+
+        @include adaptive800 {
+          grid-template-columns: repeat(4, 1fr);
+          grid-template-rows: repeat(2, 1fr);
+        }
+      }
+
+      &_audio_res_wrap {
+        @include adaptive800 {
+          grid-area: 1 / 1 / 1 / span 4;
+          & > audio {
+            width: 100%;
+          }
+        }
+
+        &__add_form {
+          display: flex;
+          align-items: center;
+          column-gap: 1.5rem;
+          margin: 3rem 0 2rem;
+
+          @include adaptive550 {
+            flex-direction: column;
+            align-items: center;
+            row-gap: 1.5rem;
+          }
+        }
+      }
+
+      &_filename {
+        word-break: break-all;
+
+        @include adaptive800 {
+          grid-area: 2 / 1 / 2 / span 3;
+        }
+      }
+
+      &_button_wrap {
+        margin: 0 0 0 auto;
+      }
+
+      &_del_button_wrap {
+        text-align: center;
+      }
+    }
+
+    &_add_content {
+      &_modal {
+        top: 1.1rem;
+
+        @include adaptive800 {
+          top: 3.7rem;
+        }
+
+        @include adaptive480 {
+          top: 5.2rem;
+        }
+      }
+
+      &_form_wrap {
+        position: relative;
+      }
+
+      &_block_wrap {
+        padding: 1.6rem 2rem 0.9rem 2rem;
+      }
+
+      &_label_wrap {
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      &_browse_wrap {
+        display: flex;
+        align-items: center;
+        column-gap: 1rem;
+      }
+
+      &_valid_error {
+        color: $white;
+        background-color: $red;
+        text-align: center;
+        max-width: 25rem;
+        padding: 0.5rem;
+        margin: 1rem 0 0 0;
+      }
+    }
+  }
+}

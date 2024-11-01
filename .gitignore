@@ -1,0 +1,14 @@
+__pycache__
+venv
+*.venv
+*.sqlite*
+frontend/.env
+backend/config/.env
+backend/attachments
+backend/images
+backend/config/.secrets.toml
+backend/.env
+backend/test*
+version.txt
+.vscode
+backend/meilisearch/public_key.txt

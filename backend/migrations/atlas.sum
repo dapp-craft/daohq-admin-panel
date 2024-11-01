@@ -1,0 +1,7 @@
+h1:mpbAGfEe1+LJRpCCE4EaRkcy3IL5KOdXKCHFqGd5MT8=
+20240731073039_init.sql h1:dEz7lykHATLtPInZUZ2bSG1PXhhlybgbkby5QF1IeIg=
+20240830090004_added_last_usage_column.sql h1:ZZglTzTBgyAcA0PmAAvfidvyDRGdYMFJf6AZdW+taCw=
+20240830094314_added_deleted_column.sql h1:8Y6tKsH69Ll6wffVxyoqlSnJBvAp7CpMo5ix1cgddAk=
+20240904154429_added_last_used.sql h1:rCE1F0GzZNETLaiEyiXJWTipw1jPJScTR8Pz/u9l9kg=
+20240909144305_added_format_column.sql h1:7Hv6DqJ6sGUyhDC5kf+hZcd5JeH+gkF2+pPoxdiRVUs=
+20240925161151_added_trigger_to_slot.sql h1:VUcJtQD9BsLqT5zv1gX8L+ez5LsCZHLJ8HIkOGxIR1c=

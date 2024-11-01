@@ -1,0 +1,113 @@
+@import "../variables/colors.scss";
+@import "../mixins.scss";
+
+.container {
+  position: relative;
+  padding: 0.5rem 1rem 1.5rem;
+  @include toRem(min-width, 280);
+  @include toRem(max-width, 280);
+  box-shadow: rgba(0, 0, 0, 0.16) 0 0 0.25rem;
+  border-radius: 0.3rem;
+  background-color: $white;
+
+  @include adaptive1200 {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    min-height: 80vh;
+
+    &_show {
+      display: block;
+      animation-name: showMenu;
+      animation-duration: 400ms;
+    }
+  }
+
+  &_full_menu_switcher {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $white;
+    padding: 0.4rem 0.25rem 0.4rem 0.2rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 2px 0px 5px 0px;
+    color: $black;
+    font-weight: 600;
+    font-size: 0.7rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.3rem 0 0.3rem 0;
+    z-index: 3;
+    color: $red;
+    transition: all 350ms linear;
+
+    @include adaptive1200 {
+      display: block;
+    }
+
+    &_active {
+      transition: all 350ms linear;
+      color: $white;
+      background-color: $red;
+    }
+  }
+
+  @keyframes showMenu {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+.title {
+  @include toRem(font-size, 20);
+  font-weight: 800;
+  color: $gray;
+  padding: 0.5rem;
+  border-bottom: 0.1rem solid $light-gray;
+
+  @include adaptive1200 {
+    padding: 0.5rem 0.5rem 0.8rem 2.5rem;
+  }
+}
+
+.post_title {
+  font-size: 1rem;
+  padding: 1rem 0.5rem;
+  color: $gray;
+}
+
+.item {
+  transition: background-color 350ms linear;
+  border-radius: 0.3rem;
+  margin: 0 0 0.5rem 0;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $light-gray;
+  }
+
+  &_link {
+    text-decoration: none;
+    color: $black;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0.7rem 0.5rem;
+    text-transform: capitalize;
+  }
+
+  &__active {
+    background-color: $light-gray;
+  }
+}
+
+.public_wrap {
+  border-bottom: 0.1rem solid $light-gray;
+  padding: 0 0 0.5rem 0;
+}

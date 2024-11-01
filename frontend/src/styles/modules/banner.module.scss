@@ -1,0 +1,36 @@
+@import "../variables/colors.scss";
+@import "../mixins.scss";
+
+.banner {
+  &_wrap {
+    position: relative;
+  }
+
+  &_img {
+    border-radius: 0.3rem 0.3rem 0 0;
+    @include toRem(height, 115);
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &_input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  &_accept_btn {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.25rem;
+    transition: transform 350ms linear;
+
+    &:hover {
+      transform: scale(1.05, 1.05);
+    }
+  }
+}

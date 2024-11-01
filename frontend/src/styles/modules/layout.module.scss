@@ -1,0 +1,328 @@
+@import "../variables/colors.scss";
+@import "../mixins.scss";
+
+.header {
+  position: sticky;
+  top: 0;
+  padding: 0.5rem 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: $white;
+  z-index: 10;
+
+  @include adaptive1090 {
+    justify-content: flex-end;
+  }
+
+  &_navbar_container {
+    @include adaptive1090 {
+      position: absolute;
+      top: 0;
+      right: -0.5rem;
+      bottom: 0;
+      left: -0.5rem;
+      background-color: rgba(255, 255, 255, 0.98);
+      height: 100vh;
+      padding: 1rem 0.5rem 0.5rem 2rem;
+      z-index: 5;
+      display: none;
+
+      &_adaptive_active {
+        display: block;
+        animation-name: showNav;
+        animation-duration: 400ms;
+      }
+    }
+  }
+
+  &_navbar {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+
+    @include adaptive1090 {
+      flex-direction: column;
+    }
+
+    &_item {
+      font-weight: 700;
+      height: 100%;
+      text-align: center;
+      padding: 0.7rem 0 0.7rem 0;
+      border-bottom: 0.2rem solid transparent;
+      z-index: 1;
+      transition: border-bottom 350ms linear;
+
+      &_link {
+        @include toRem(font-size, 25);
+        color: $gray;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      &__active {
+        border-bottom: 0.2rem solid $red;
+      }
+
+      &:hover {
+        border-bottom: 0.2rem solid $red;
+      }
+    }
+  }
+
+  &_auth {
+    position: relative;
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    padding: 0 0 0.3rem 0;
+    cursor: pointer;
+
+    &_avatar_wrap {
+
+      border-radius: 50%;
+      width: 3rem;
+      height: 3rem;
+      overflow: hidden;
+
+      &.with_border {
+        border: 1px solid #ff2d55;
+      }
+    }
+
+
+    &_avatar_picture {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &_username {
+      @include toRem(font-size, 16);
+      color: $gray;
+      font-weight: 600;
+    }
+
+    &_modal_wrap {
+      display: none;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      transform: translateY(95%);
+      padding: 0.5rem 0;
+      z-index: 1;
+
+      &:hover {
+        display: block;
+      }
+    }
+
+    &_modal {
+      box-shadow: rgba(0, 0, 0, 0.16) 0 0.0625rem 0.25rem;
+      border-radius: 0.3rem;
+      background-color: $white;
+
+      &_item {
+        padding: 0.5rem 1rem;
+        border-radius: 0.3rem 0.3rem 0 0;
+        transition: background-color 350ms linear;
+
+        &_link {
+          @include toRem(font-size, 20);
+          text-decoration: none;
+          color: $gray;
+        }
+
+        &_button {
+          @include toRem(font-size, 20);
+          color: $gray;
+        }
+
+        &:nth-of-type(2) {
+          border-radius: 0;
+        }
+
+        &:last-of-type {
+          border-radius: 0 0 0.3rem 0.3rem;
+        }
+
+        &:hover {
+          background-color: $light-gray;
+        }
+      }
+    }
+
+    &:hover &_modal_wrap {
+      display: block;
+    }
+  }
+
+  &_line {
+    position: absolute;
+    bottom: 0.05rem;
+    background-color: $light-gray;
+    height: 0.1rem;
+    width: 100%;
+  }
+
+  @keyframes showNav {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+.breadcrumbs {
+  padding: 2.5rem 0 0 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  column-gap: 0.5rem;
+  row-gap: 0.2rem;
+  @include toRem(font-size, 20);
+  flex-wrap: wrap;
+
+  @include adaptive1090 {
+    @include toRem(font-size, 18);
+  }
+
+  &_link {
+    text-decoration: none;
+    color: $black;
+    transition: color 350ms linear;
+    text-transform: capitalize;
+
+    &:hover {
+      color: $red;
+    }
+  }
+}
+
+.footer {
+  width: 100%;
+  margin-top: 2em;
+  margin-bottom: 0.5em;
+
+  &_version_info {
+    @include toRem(font-size, 12);
+    text-align: right;
+    font-weight: 600;
+
+    & > span {
+      color: $gray;
+      font-style: italic;
+    }
+  }
+}
+
+.burger_button_wrap {
+  position: absolute;
+  top: 1rem;
+  left: 0.5rem;
+  z-index: 6;
+  display: none;
+
+  @include adaptive1090 {
+    display: block;
+  }
+}
+
+.burger_button {
+  &_input {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 0.0625rem;
+    width: 0.0625rem;
+    margin: -0.0625rem;
+    padding: 0;
+    border: 0;
+
+    &:checked + label > .burger_button_bars_wrap > .burger_button_bar1 {
+      top: 0.84375rem;
+      background-color: transparent;
+    }
+
+    &:checked + label > .burger_button_bars_wrap > .burger_button_bar2 {
+      left: 0px;
+      width: 1.875rem;
+      transform: rotate(45deg);
+    }
+
+    &:checked + label > .burger_button_bars_wrap > .burger_button_bar3 {
+      left: 0;
+      width: 1.875rem;
+      transform: rotate(-45deg);
+    }
+
+    &:checked + label > .burger_button_bars_wrap > .burger_button_bar4 {
+      background-color: transparent;
+    }
+
+    &:checked + label > .burger_button_bars_wrap > .burger_button_bar5 {
+      bottom: 0.84375rem;
+      background-color: transparent;
+    }
+  }
+
+  &_bar1 {
+    top: 0;
+  }
+
+  &_bar2,
+  &_bar3 {
+    top: 0.84375rem;
+  }
+
+  &_bar3 {
+    right: 0;
+  }
+
+  &_bar4 {
+    bottom: 0;
+  }
+
+  &_bars_wrap {
+    margin: 0 auto;
+    width: 1.875rem;
+    height: 1.875rem;
+    position: relative;
+    cursor: pointer;
+  }
+
+  &_bars_wrap &_bar {
+    padding: 0;
+    width: 1.875rem;
+    height: 0.25rem;
+    background-color: $red;
+    display: block;
+    border-radius: 0.25rem;
+    transition: all 0.4s ease-in-out;
+    position: absolute;
+    transition: all 0.4s ease-in-out, transform 0.4s ease-in-out 0.4s;
+  }
+
+  &_bars_wrap &_bar4 {
+    top: 0.84375rem;
+  }
+
+  &_bars_wrap &_bar5 {
+    bottom: 0;
+  }
+
+  &_bars_wrap &_bar2 {
+    width: 0.0625rem;
+    transform: rotate(90deg);
+    left: 0.84375rem;
+  }
+
+  &_bars_wrap &_bar3 {
+    width: 0.0625rem;
+    left: 0.84375rem;
+  }
+}

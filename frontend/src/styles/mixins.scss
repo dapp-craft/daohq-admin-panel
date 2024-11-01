@@ -1,0 +1,39 @@
+@mixin toRem($property, $value) {
+  #{$property}: calc($value / 16) + rem;
+}
+
+@mixin adaptive1200 {
+  @media (max-width: 75rem) {
+    @content;
+  }
+}
+
+@mixin adaptive1090 {
+  @media (max-width: 68.125rem) {
+    @content;
+  }
+}
+
+@mixin adaptive800 {
+  @media (max-width: 50rem) {
+    @content;
+  }
+}
+
+@mixin adaptive550 {
+  @media (max-width: 34.375rem) {
+    @content;
+  }
+}
+
+@mixin adaptive480 {
+  @media (max-width: 30rem) {
+    @content;
+  }
+}
+
+@mixin adaptive360 {
+  @media (max-width: 22.5rem) {
+    @content;
+  }
+}

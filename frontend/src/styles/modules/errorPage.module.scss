@@ -1,0 +1,78 @@
+@import "../variables/colors.scss";
+@import "../mixins.scss";
+
+.page_bg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 0.5rem;
+  background: rgb(255, 45, 85);
+  background: radial-gradient(
+    circle,
+    rgba(255, 45, 85, 0.3) 0%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+
+.page_title_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 2rem;
+  margin: -20% 0 10% 0;
+
+  @include adaptive480 {
+    flex-direction: column;
+  }
+}
+
+.page_title,
+.error_title,
+.error_text {
+  color: $red;
+  font-family: "Roboto Mono", monospace;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.error {
+  &_title {
+    font-size: 5rem;
+    font-weight: 800;
+    margin: 0 0 2rem 0;
+  }
+
+  &_text {
+    font-size: 1.2rem;
+  }
+
+  &_link_wrap {
+    max-width: 10rem;
+    text-align: center;
+    background-color: $red;
+    margin: 1.5rem auto 0;
+    transition: 350ms all linear;
+
+    &:hover {
+      transition: 350ms all linear;
+      transform: scale(1.05, 1.05);
+    }
+  }
+
+  &_link {
+    display: block;
+    color: $white;
+    text-decoration: none;
+    padding: 0.5rem;
+    border: 0.125rem solid $white;
+  }
+}
+
+.page_title {
+  &_logo_wrap {
+    max-width: 5rem;
+  }
+}
